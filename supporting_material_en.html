@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supporting Material Request</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Request an Image or Video</h1>
+    <p>Enter the name of the file related to the computer networking topic you're interested in, and specify the type (image or video).</p>
+
+    <form id="requestForm">
+        <label for="fileName">File Name:</label>
+        <input type="text" id="fileName" name="fileName" required>
+        
+        <label for="fileType">File Type:</label>
+        <select id="fileType" name="fileType" required>
+            <option value="image">Image</option>
+            <option value="video">Video</option>
+        </select>
+
+        <button type="submit">Request File</button>
+    </form>
+
+    <script>
+        document.getElementById('requestForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+            const fileName = document.getElementById('fileName').value.trim();
+            const modifiedFileName = `${fileName} genshin impact`.replace(/\s+/g, '+'); // Append "genshin impact" and format
+            
+            const fileType = document.getElementById('fileType').value;
+    
+            if (fileType === 'image') {
+                window.location.href = `https://www.google.com/search?q=${modifiedFileName}&tbm=isch`;
+            } else if (fileType === 'video') {
+                window.location.href = `https://www.youtube.com/results?search_query=${modifiedFileName}`;
+            }
+        });
+    </script>
+    
+    
+
+</body>
+</html>
